@@ -1,34 +1,25 @@
 #include "stdafx.h"
 #include "Animation.h"
 
-
+using namespace std;
 Animation::Animation()
 {
 }
 
-std::string Animation::getKey() const
+std::vector<Attribute*> Animation::getAtt() const
 {
-	return key;
+	return atts;
 }
 
-std::string Animation::getValue() const
+void Animation::setAtt(std::vector<Attribute*>& att)
 {
-	return value;
+	atts = att;
 }
+
 
 std::string Animation::getName() const
 {
 	return name;
-}
-
-void Animation::setKey(std::string k)
-{
-	key = k;
-}
-
-void Animation::setValue(std::string val)
-{
-	value = val;
 }
 
 void Animation::setName(std::string n)
