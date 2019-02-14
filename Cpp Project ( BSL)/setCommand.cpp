@@ -17,15 +17,15 @@ void setCommand::cmdRun(std::vector<std::string>& inputString, SVG &svg)
 	int valueLocation = inputString[2].find_last_of(')');
 	string value = inputString[2].substr(1, valueLocation - 1);
 
+	Attribute* att = new Attribute;
+	att->setKey(key);
+	att->setValue(value);
+
 	int arrowLocation1 = inputString[1].find_first_of('>');
 	int arrowLocation2 = inputString[1].find_last_of('>');
 	if (arrowLocation1 != arrowLocation2)
 	{
 		string animName = inputString[1].substr(arrowLocation1 + 1, ((arrowLocation2 - 2) - arrowLocation1));
-		//Animation* anim = new Animation;
-		//anim->setName(animName);
-		//anim->setKey(key);
-		//anim->setValue(value);
 
 		for (auto s : svg.getShape())
 		{
@@ -35,9 +35,7 @@ void setCommand::cmdRun(std::vector<std::string>& inputString, SVG &svg)
 				{
 					if (animName == a->getName())
 					{
-						a->setKey(key);
-						a->setValue(value);
-						//s->pushBackAnimate(anim);
+						a->pushBackAtt(att);
 						return;
 					}
 				}
@@ -46,11 +44,6 @@ void setCommand::cmdRun(std::vector<std::string>& inputString, SVG &svg)
 
 		}
 	}
-
-
-	Attribute* att = new Attribute;
-	att->setKey(key);
-	att->setValue(value);
 
 
 	for (auto s : svg.getShape())
