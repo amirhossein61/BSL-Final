@@ -9,6 +9,7 @@ public:
 	virtual ~Animation() {};
 	std::vector<Attribute*> getAtt()const;
 	void setAtt(std::vector<Attribute*>&);
+	void pushBackAtt(Attribute*);
 	std::string getName()const;
 	void setName(std::string);
 

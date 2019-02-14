@@ -16,6 +16,11 @@ void Animation::setAtt(std::vector<Attribute*>& att)
 	atts = att;
 }
 
+void Animation::pushBackAtt(Attribute *attribute)
+{
+	atts.push_back(attribute);
+}
+
 
 std::string Animation::getName() const
 {
