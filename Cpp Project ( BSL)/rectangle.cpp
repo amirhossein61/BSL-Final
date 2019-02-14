@@ -21,17 +21,22 @@ string rectangle::toSVG()
 		s += " />";
 	else
 	{
-		s += " >";
-		s += "\n<animate";
+		
 		for (auto animPtr : Shape::getAnimate())
 		{
-			s += ' ';
-			s += animPtr->getKey();
-			s += "=\"";
-			s += animPtr->getValue();
-			s += "\"";
+			s += " >";
+			s += "\n<animate";
+			for (auto attPtr : animPtr->getAtt())
+			{
+				s += ' ';
+				s += attPtr->getKey();
+				s += "=\"";
+				s += attPtr->getValue();
+				s += "\"";
+			}
+			s += " />";
 		}
-		s += " />";
+		
 		s += "\n</rect>";
 	}
 	return s;
