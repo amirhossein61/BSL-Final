@@ -259,3 +259,5 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/Cpp Project ( BSL)/a3.svg
+/Cpp Project ( BSL)/a11111.svg
