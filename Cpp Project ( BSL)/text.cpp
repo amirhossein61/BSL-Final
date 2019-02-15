@@ -9,22 +9,63 @@ text::text()
 std::string text::toSVG()
 {
 	s = "<text";
-	for (Attribute* attPtr : Shape::getAtt())
+	if (Shape::getAnimate().size() == 0)
 	{
-		if (attPtr->getKey() == "text")
+		for (Attribute* attPtr : Shape::getAtt())
 		{
-			s += ">";
+			if (attPtr->getKey() == "text")
+			{
+				s += ">";
+				s += attPtr->getValue();
+				s += "</text>";
+				break;
+			}
+			s += ' ';
+			s += attPtr->getKey();
+			s += "=\"";
 			s += attPtr->getValue();
-			s += "</text>";
-			break;
-		}
-		s += ' ';
-		s += attPtr->getKey();
-		s += "=\"";
-		s += attPtr->getValue();
-		s += "\"";
+			s += "\"";
 
+		}
 	}
-	s += " />";
+	else if(Shape::getAnimate().size() != 0)
+	{
+		for (Attribute* attPtr : Shape::getAtt())
+		{
+			if (attPtr->getKey() == "text")
+			{
+				continue;
+			}
+			s += ' ';
+			s += attPtr->getKey();
+			s += "=\"";
+			s += attPtr->getValue();
+			s += "\"";
+
+		}
+
+		s += " >";
+
+		for (auto animPtr : Shape::getAnimate())
+		{
+			//s += " >";
+			s += "\n<animate";
+			for (auto attPtr : animPtr->getAtt())
+			{
+				s += ' ';
+				s += attPtr->getKey();
+				s += "=\"";
+				s += attPtr->getValue();
+				s += "\"";
+			}
+			s += " />";
+		}
+		for (auto attPtr : Shape::getAtt())
+		{
+			if (attPtr->getKey() == "text")
+				s += attPtr->getValue();
+		}
+		s += "\n</text>";
+	}
 	return s;
 }
