@@ -8,6 +8,9 @@
 #include"animationCommand.h"
 #include"listCommand.h"
 #include"clearCommand.h"
+#include"getCommand.h"
+
+
 using namespace std;
 
 App::App()
@@ -60,6 +63,11 @@ void App::run()
 		if (splitedString[0] == "clear")
 		{
 			command *cmd = new clearCommand;
+			cmd->cmdRun(splitedString, svg);
+		}
+		if (splitedString[0] == "get")
+		{
+			command *cmd = new getCommand;
 			cmd->cmdRun(splitedString, svg);
 		}
 		if (splitedString[0] == "animation")
