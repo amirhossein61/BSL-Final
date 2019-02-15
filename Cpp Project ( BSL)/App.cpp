@@ -10,7 +10,6 @@
 #include"clearCommand.h"
 #include"getCommand.h"
 
-
 using namespace std;
 
 App::App()
