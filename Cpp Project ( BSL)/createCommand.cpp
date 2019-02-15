@@ -51,12 +51,6 @@ void createCommand::cmdRun(std::vector<std::string>& inputString, SVG &svg)
 		newShape->setName(name);
 		svg.getShape().push_back(newShape);
 	}
-	if (inputString[1] == "text")
-	{
-		Shape* newShape = new text;
-		newShape->setName(name);
-		svg.getShape().push_back(newShape);
-	}
 	if (inputString[1] == "polygon")
 	{
 		Shape* newShape = new polygon;
