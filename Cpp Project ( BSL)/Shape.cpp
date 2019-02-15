@@ -4,6 +4,19 @@
 using namespace std;
 Shape::Shape() { }
 
+Shape::~Shape()
+{
+	for (auto a : att)
+		delete (a);
+
+	att.clear();
+
+	for (auto anim : animate)
+		delete (anim);
+
+	animate.clear();
+}
+
 std::string Shape::getName() const
 {
 	return nameOfShape;

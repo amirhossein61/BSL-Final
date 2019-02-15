@@ -8,7 +8,7 @@ class Shape
 public:
 	Shape();
 	virtual std::string toSVG() = 0;
-	virtual ~Shape() {};
+	virtual ~Shape();
 	std::string getName()const;
 	void setName(std::string);
 	std::vector<Attribute*> getAtt()const;
