@@ -14,7 +14,7 @@ public:
 	std::vector<Attribute*> getAtt()const;
 	void setAtt(std::vector<Attribute*>&);
 	void pushBackAtt(Attribute*);
-	std::vector<Animation*> getAnimate()const;
+	std::vector<Animation*>& getAnimate();
 	void setAnimate(std::vector<Animation*>&);
 	void pushBackAnimate(Animation*);
 

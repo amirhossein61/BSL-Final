@@ -42,7 +42,7 @@ void Shape::pushBackAtt(Attribute * attribute)
 	att.push_back(attribute);
 }
 
-std::vector<Animation*> Shape::getAnimate() const
+std::vector<Animation*>& Shape::getAnimate()
 {
 	return animate;
 }
