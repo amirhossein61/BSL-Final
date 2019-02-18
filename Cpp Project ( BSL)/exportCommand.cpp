@@ -13,7 +13,8 @@ void exportCommand::cmdRun(std::vector<std::string>& inputString, SVG & svg)
 	string nameOfFile = inputString[1].substr(1, fileNameLocation - 1);
 	string file = svg.makePic();
 	ofstream myfile;
-	myfile.open(nameOfFile);
+	string saveLocation = "export/";
+	myfile.open(saveLocation + nameOfFile);
 	myfile << file;
 	myfile.close();
 
