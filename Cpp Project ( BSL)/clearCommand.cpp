@@ -40,12 +40,11 @@ void clearCommand::cmdRun(std::vector<std::string>& inputString, SVG & svg)
 		int animLocation = inputString[1].find_last_of('>');
 		string animName = inputString[1].substr(animLocation + 1);
 
-		
+		size_t i = 0;
 		for (auto shape : svg.getShape())
 		{
 			if (shapeName == shape->getName())
 			{
-				size_t i = 0;
 				for (auto anim : shape->getAnimate())
 				{
 					if (animName == anim->getName())
