@@ -27,7 +27,7 @@ void setCommand::cmdRun(std::vector<std::string>& inputString, SVG &svg)
 			pathValue += ' ';
 			pathValue += inputString[i];
 		}
-		pathValue.erase(pathValue.end());
+		pathValue.erase(pathValue.end()-1);
 		value = pathValue;
 	}
 
