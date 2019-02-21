@@ -18,6 +18,7 @@ public:
 	void scatterPlot(std::string,std::string);
 	std::string linePlot(std::string,std::string);
 	void setRectangleFeatures();
+	void setText();
 
 private:
 	std::vector<Shape*> shape;

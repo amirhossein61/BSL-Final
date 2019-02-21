@@ -4,6 +4,7 @@
 #include"circle.h"
 #include"rectangle.h"
 #include"polyline.h"
+#include"text.h"
 //#include"Split.h"
 using namespace std;
 
@@ -25,6 +26,7 @@ Plot::Plot()
 std::string Plot::toSVG()
 {
 	setRectangleFeatures();
+	setText();
 	readFile();
 	for (auto sh : shape)
 	{
@@ -250,4 +252,59 @@ void Plot::setRectangleFeatures()
 
 	}
 	
+}
+
+void Plot::setText()
+{
+	Shape* newShape = new text;
+	float x;
+	float y;
+	float width;
+	string title;
+	for (auto att : this->getAtt())
+	{
+		if (att->getKey() == "x")
+			x = stof(att->getValue());
+
+		if (att->getKey() == "y")
+			y =stof(att->getValue());
+
+		if (att->getKey() == "width")
+			width = stof(att->getValue());
+
+		if (att->getKey() == "title")
+			title = att->getValue();
+
+	}
+	float xText = (width / 2) - x-10;
+	string xPos = to_string(xText);
+	float yText = y - 5;
+	string yPos = to_string(yText);
+
+	Attribute* att1 = new Attribute;
+	att1->setKey("x");
+	att1->setValue(xPos);
+	newShape->pushBackAtt(att1);
+
+	Attribute* att2 = new Attribute;
+	att2->setKey("y");
+	att2->setValue(yPos);
+	newShape->pushBackAtt(att2);
+
+	Attribute* att3 = new Attribute;
+	att3->setKey("font-size");
+	att3->setValue("24");
+	newShape->pushBackAtt(att3);
+
+	Attribute* att4 = new Attribute;
+	att4->setKey("font-family");
+	att4->setValue("Ubuntu");
+	newShape->pushBackAtt(att4);
+
+	Attribute* att5 = new Attribute;
+	att5->setKey("text");
+	att5->setValue(title);
+	newShape->pushBackAtt(att5);
+
+	shape.push_back(newShape);
 }
