@@ -17,7 +17,7 @@ void setCommand::cmdRun(std::vector<std::string>& inputString, SVG &svg)
 	int valueLocation = inputString[2].find_last_of(')');
 	string value = inputString[2].substr(1, valueLocation - 1);
 
-	if (inputString.size() > 3)//to support path features
+	if (inputString.size() > 3)
 	{
 		string pathValueStart = inputString[2].substr(1);
 		string pathValue;

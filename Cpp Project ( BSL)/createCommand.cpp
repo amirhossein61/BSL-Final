@@ -11,7 +11,7 @@
 #include"App.h"
 #include<string>
 #include"SVG.h"
-
+#include"Plot.h"
 using namespace std;
 
 createCommand::createCommand()
@@ -63,5 +63,13 @@ void createCommand::cmdRun(std::vector<std::string>& inputString, SVG &svg)
 		newShape->setName(name);
 		svg.getShape().push_back(newShape);
 	}
+	if (inputString[1] == "plot")
+	{
+		Shape* newPlot = new Plot;
+		newPlot->setName(name);
+		svg.getShape().push_back(newPlot);
+	}
+
+
 }
 
