@@ -160,7 +160,9 @@
     <ClInclude Include="ellipse.h" />
     <ClInclude Include="exportCommand.h" />
     <ClInclude Include="getCommand.h" />
+    <ClInclude Include="helper.h" />
     <ClInclude Include="listCommand.h" />
+    <ClInclude Include="loadCommand.h" />
     <ClInclude Include="path.h" />
     <ClInclude Include="Plot.h" />
     <ClInclude Include="polygon.h" />
@@ -168,7 +170,6 @@
     <ClInclude Include="rectangle.h" />
     <ClInclude Include="setCommand.h" />
     <ClInclude Include="Shape.h" />
-    <ClInclude Include="Split.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="SVG.h" />
     <ClInclude Include="targetver.h" />
@@ -187,7 +188,9 @@
     <ClCompile Include="ellipse.cpp" />
     <ClCompile Include="exportCommand.cpp" />
     <ClCompile Include="getCommand.cpp" />
+    <ClCompile Include="helper.cpp" />
     <ClCompile Include="listCommand.cpp" />
+    <ClCompile Include="loadCommand.cpp" />
     <ClCompile Include="path.cpp" />
     <ClCompile Include="Plot.cpp" />
     <ClCompile Include="polygon.cpp" />
