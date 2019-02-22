@@ -1,12 +1,18 @@
-#pragma once
-#pragma once
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<string>
+#include "stdafx.h"
+#include "helper.h"
 
 
-size_t split(const std::string &txt, std::vector<std::string> &strs, char ch)
+helper::helper()
+{
+}
+
+
+helper::~helper()
+{
+}
+
+
+size_t helper::split(const std::string &txt, std::vector<std::string> &strs, char ch)
 {
 	size_t pos = txt.find(ch);
 	size_t initialPos = 0;
