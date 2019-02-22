@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "App.h"
-#include"Split.h"
 #include"command.h"
 #include"createCommand.h"
 #include"setCommand.h"
@@ -9,7 +8,8 @@
 #include"listCommand.h"
 #include"clearCommand.h"
 #include"getCommand.h"
-
+#include"helper.h"
+#include"loadCommand.h"
 using namespace std;
 
 App::App()
@@ -18,13 +18,12 @@ App::App()
 
 void App::run()
 {
-
 	bool appRun = true;
 	while (appRun == true)
 	{
 		cout << "> ";
 		getline(cin, input);
-		split(input, splitedString, ' ');
+		helper::split(input, splitedString, ' ');
 		if (splitedString[0] == "create")
 		{
 			command *cmd = new createCommand;
@@ -74,10 +73,20 @@ void App::run()
 			command *cmd = new animationCommand;
 			cmd->cmdRun(splitedString, svg);
 		}
+		if (splitedString[0] == "load")
+		{
+			command *cmd = new loadCommand;
+			cmd->cmdRun(splitedString, svg);
+		}
 		if (splitedString[0] == "exit")
 			appRun = false;
 	}
 
+}
+
+void App::setVector(std::vector<std::string>& inputVec)
+{
+	splitedString = inputVec;
 }
 
 
