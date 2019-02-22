@@ -27,6 +27,7 @@ std::string Plot::toSVG()
 {
 	setRectangleFeatures();
 	setText();
+	axisPoints();
 	readFile();
 	for (auto sh : shape)
 	{
@@ -276,7 +277,7 @@ void Plot::setText()
 			title = att->getValue();
 
 	}
-	float xText = (width / 2) - x-10;
+	float xText = ((width +x)/ 3);
 	string xPos = to_string(xText);
 	float yText = y - 5;
 	string yPos = to_string(yText);
@@ -307,4 +308,77 @@ void Plot::setText()
 	newShape->pushBackAtt(att5);
 
 	shape.push_back(newShape);
+}
+
+void Plot::axisPoints()
+{
+	Shape* xEndPoint = new text;
+	Shape* yEndPoint = new text;
+	Shape* startPoint = new text;
+	float x;
+	float y;
+	float width;
+	float height;
+	for (auto att : this->getAtt())
+	{
+		if (att->getKey() == "x")
+			x = stof(att->getValue());
+
+		if (att->getKey() == "y")
+			y = stof(att->getValue());
+
+		if (att->getKey() == "width")
+			width = stof(att->getValue());
+
+		if (att->getKey() == "height")
+			height =stof(att->getValue());
+
+	}
+
+	float xEndPointX = width + x;
+	float xEndPointY = height + y;
+	float startPointY = y + height;
+	Attribute* att1 = new Attribute;
+	att1->setKey("x");
+	att1->setValue(to_string(xEndPointX+10));
+	xEndPoint->pushBackAtt(att1);
+	Attribute* att2 = new Attribute;
+	att2->setKey("y");
+	att2->setValue(to_string(xEndPointY+10));
+	xEndPoint->pushBackAtt(att2);
+	Attribute* att3 = new Attribute;
+	att3->setKey("text");
+	att3->setValue(to_string(width));
+	xEndPoint->pushBackAtt(att3);
+	shape.push_back(xEndPoint);
+
+	Attribute* att4 = new Attribute;
+	att4->setKey("x");
+	att4->setValue(to_string(x-10));
+	yEndPoint->pushBackAtt(att4);
+	Attribute* att5 = new Attribute;
+	att5->setKey("y");
+	att5->setValue(to_string(y-10));
+	yEndPoint->pushBackAtt(att5);
+	Attribute* att6 = new Attribute;
+	att6->setKey("text");
+	att6->setValue(to_string(height));
+	yEndPoint->pushBackAtt(att6);
+	shape.push_back(yEndPoint);
+
+	Attribute* att7 = new Attribute;
+	att7->setKey("x");
+	att7->setValue(to_string(x-10));
+	startPoint->pushBackAtt(att7);
+	Attribute* att8 = new Attribute;
+	att8->setKey("y");
+	att8->setValue(to_string(startPointY+10));
+	startPoint->pushBackAtt(att8);
+	Attribute* att9 = new Attribute;
+	att9->setKey("text");
+	att9->setValue("0");
+	startPoint->pushBackAtt(att9);
+	shape.push_back(startPoint);
+
+
 }

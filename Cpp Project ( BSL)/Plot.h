@@ -19,6 +19,7 @@ public:
 	std::string linePlot(std::string,std::string);
 	void setRectangleFeatures();
 	void setText();
+	void axisPoints();
 
 private:
 	std::vector<Shape*> shape;
