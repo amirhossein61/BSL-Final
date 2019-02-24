@@ -12,7 +12,7 @@ void helpCommand::cmdRun(std::vector<std::string>& inputString, SVG & svg)
 	if (nameOfCommand == "create")
 		cout << "create command : You can make a shape or plot using this command. " << endl;
 	else if (nameOfCommand == "set")
-		cout << "set command : You can set attributes or animations for shapes or plots using this command. " << endl;
+		cout << "set command : You can set attributes for shapes or animations of a specific shape or plots using this command. " << endl;
 	else if (nameOfCommand == "export")
 		cout << "export command : You can export your final svg file with your optional svg file name using this command. " << endl;
 	else if (nameOfCommand == "list")
