@@ -10,7 +10,7 @@ public:
 	App();
 	virtual ~App() {};
 	void run();
-	void setVector(std::vector<std::string>&);
+	void setString(std::string &);
 private:
 	std::string input;
 	std::vector<std::string> splitedString;
