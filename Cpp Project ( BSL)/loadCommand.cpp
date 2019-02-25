@@ -24,19 +24,21 @@ void loadCommand::cmdRun(std::vector<std::string>& inputString, SVG &svg)
 	{
 		getline(openFile, read);
 		size_t inputSize = read.size();
+		
 		if (inputSize != 0 && read[0] != '#' && read[inputSize - 1] == ';')
 		{
-			vector<string> splitedString;
-			helper::split(read, splitedString, ' ');
-			App* app = new App;
-			app->setVector(splitedString);
-
-			//App::setVector(splitedString);
-
+			read.erase(read.end() - 1);
+			out.push_back(read);
 		}
+		
 
 	}
 
 
 
+}
+
+std::vector<std::string>& loadCommand::getVect()
+{
+	return out;
 }
