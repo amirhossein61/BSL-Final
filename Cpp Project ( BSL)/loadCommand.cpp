@@ -17,7 +17,7 @@ void loadCommand::cmdRun(std::vector<std::string>& inputString, SVG &svg)
 	if (!openFile)
 	{
 		cout << "File didn't opened properly. " << endl;
-		exit(EXIT_FAILURE);//EXCEPTION BEZARAM
+		exit(EXIT_FAILURE);
 	}
 	string read;
 	while (!openFile.eof())

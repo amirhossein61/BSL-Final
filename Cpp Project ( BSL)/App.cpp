@@ -151,9 +151,3 @@ void App::run()
 
 }
 
-void App::setString(std::string & inputStr)
-{
-	input = inputStr;
-}
-
-
